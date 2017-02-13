@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Demo</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <style type="text/css">
+    </style>
+    <script type="text/javascript">  
+</script> 
+<!--         调用jquery需要的库，手机版和电脑版的不同 -->
+        <script type="text/javascript" src="javascripts/zepto.min.js"> 
+        </script> 
+    <script type="text/javascript" src="https://g.alicdn.com/dingding/open-develop/1.0.0/dingtalk.js"></script>
+    <script type="text/javascript" src="javascripts/demo.js"></script>
+    <script type="text/javascript">
+    dd.config({
+    agentId: '75710882',
+    corpId: 'ding0bc18b9f928dc17e35c2f4657eb6378f',
+    timeStamp:'20172131114',
+    nonceStr: 'hillkim',  
+    signature: '98db02732e81b4de18e54ff4dc2c31380209ef32',
+    jsApiList : [ 'runtime.info', 'biz.contact.choose','biz.util.scan',
+        'device.notification.confirm', 'device.notification.alert',
+        'device.notification.prompt', 'biz.ding.post',
+        'biz.util.openLink',biz.user.get] 
+});
+
+      dd.biz.user.get({
+        onSuccess: function (info) {
+            logger.e('userGet success: ' + JSON.stringify(info));
+        },
+        onFail: function (err) {
+            logger.e('userGet fail: ' + JSON.stringify(err));
+        }
+    });      
+    </script>
+</head>
+<body>
+</body>
+</html>
