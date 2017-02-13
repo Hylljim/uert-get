@@ -23,17 +23,17 @@
     timeStamp:'20172131114',
     nonceStr: 'hillkim',  
     signature: '24cc3374e62dab4cc1d8d9d2aa706f490b782c9f',
-    jsApiList : [ 'runtime.info', 'biz.contact.choose','biz.util.scan',
+    jsApiList : [ 'runtime.info', 'biz.contact.choose','biz.user.get',
         'device.notification.confirm', 'device.notification.alert',
         'device.notification.prompt', 'biz.ding.post',
-        'biz.util.openLink',biz.user.get] 
+        'biz.util.openLink'] 
 });
 
 dd.ready(function(res){
           logger.i('ready');
           
           dd.biz.user.get({
-        onSuccess: function (info) {
+        onSuccess: function (data) {
             logger.e('userGet success: ' + JSON.stringify(info));
         },
         onFail: function (err) {
@@ -44,7 +44,18 @@ dd.ready(function(res){
           alert(error.errorCode);
           alert(JSON.stringify(error));
           logger.i('ready');
-      });      
+      });  
+      
+         function userget() {
+             dd.biz.user.get({
+        onSuccess: function (data) {
+            logger.e('userGet success: ' + JSON.stringify(info));
+        },
+        onFail: function (err) {
+            logger.e('userGet fail: ' + JSON.stringify(err));
+        }
+       });
+      }
     </script>
 </head>
 <body>
