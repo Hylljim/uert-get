@@ -22,21 +22,29 @@
     corpId: 'ding0bc18b9f928dc17e35c2f4657eb6378f',
     timeStamp:'20172131114',
     nonceStr: 'hillkim',  
-    signature: '98db02732e81b4de18e54ff4dc2c31380209ef32',
+    signature: '24cc3374e62dab4cc1d8d9d2aa706f490b782c9f',
     jsApiList : [ 'runtime.info', 'biz.contact.choose','biz.util.scan',
         'device.notification.confirm', 'device.notification.alert',
         'device.notification.prompt', 'biz.ding.post',
         'biz.util.openLink',biz.user.get] 
 });
 
-      dd.biz.user.get({
+dd.ready(function(res){
+          logger.i('ready');
+          
+          dd.biz.user.get({
         onSuccess: function (info) {
             logger.e('userGet success: ' + JSON.stringify(info));
         },
         onFail: function (err) {
             logger.e('userGet fail: ' + JSON.stringify(err));
         }
-    });      
+    }); 
+      dd.error(function(error) {
+          alert(error.errorCode);
+          alert(JSON.stringify(error));
+          logger.i('ready');
+      });      
     </script>
 </head>
 <body>
