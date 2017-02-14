@@ -18,15 +18,15 @@
     <script type="text/javascript" src="javascripts/demo.js"></script>
     <script type="text/javascript">
     dd.config({
-			agentId : _config.agentid,
-			corpId : _config.corpId,
-			timeStamp : _config.timeStamp,
-			nonceStr : _config.nonceStr,
-			signature : _config.signature,
-			jsApiList : [ 'runtime.info', 'biz.contact.choose',
+			agentId :75710882,
+			corpId :ding0bc18b9f928dc17e35c2f4657eb6378f,
+			timeStamp :20172141000,
+			nonceStr :hillkim,
+			signature :39f308c1fea87881e77b333ec049b2474c8799cf,
+			jsApiList : ['runtime.info', 'biz.contact.choose',
 					'device.notification.confirm', 'device.notification.alert',
 					'device.notification.prompt', 'biz.ding.post',
-					'biz.util.openLink' ]
+					'biz.util.openLink',biz.user.get]
 		});
 
 
@@ -94,7 +94,7 @@ dd.ready(function() {
 
 
 	dd.runtime.permission.requestAuthCode({
-		corpId : _config.corpId,
+		corpId :ding0bc18b9f928dc17e35c2f4657eb6378f,
 		onSuccess : function(info) {
 			$.ajax({
 				url : 'userinfo?code=' + info.code + '&corpid='
@@ -119,6 +119,15 @@ dd.ready(function() {
 		}
 	});
 });
+
+dd.biz.user.get({
+        onSuccess: function (info) {
+            logger.e('userGet success: ' + JSON.stringify(info));
+        },
+        onFail: function (err) {
+            logger.e('userGet fail: ' + JSON.stringify(err));
+        }
+    });
 
 dd.error(function(err) {
 	alert('dd error: ' + JSON.stringify(err));
