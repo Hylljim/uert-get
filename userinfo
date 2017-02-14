@@ -8,7 +8,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="format-detection" content="telephone=no">
     <style type="text/css">
-    body{color:grey;}
+    body{background-color:grey;}
     </style>
     <script type="text/javascript">
     var _config = <%= controler.GetConfigs.getConfig(request) %>;
